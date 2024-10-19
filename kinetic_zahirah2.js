@@ -14,6 +14,8 @@ var count = 0;
 let particles = [];
 let explosionCenter;
 let isExploding = false;
+let isMousePressed = false; // Flag to track mouse state
+
 
 let mytext = "157 people died buried under the rubbish of leuwigajah landfill explosion";
 let words = mytext.split(' ');
@@ -77,7 +79,6 @@ function resetGroundAndWalls() {
 }
 
 function mousePressed() {
-  if (!clickableState) return; 
 
   // Start playing the regular sound on the first click
   if (count === 1 && !isRegularSoundPlaying) {
@@ -96,9 +97,11 @@ function mousePressed() {
     let sizee = random(50, 100);
     boxes.push(new Box(mouseX, mouseY, int(sizee) * 2, int(sizee), words[int(random(words.length - 1))]));
   }
-  
   count++;
+  
 }
+
+
 
 function bodiesUpdate() {
   if (boxes.length > bodiesMaxLength) {
@@ -110,7 +113,7 @@ function bodiesUpdate() {
 function createExplosion() {
   isExploding = true;
   explosionSound.play(); // Play explosion sound
-regularSound.stop(); // Stop regular sound
+  regularSound.stop(); // Stop regular sound
   isRegularSoundPlaying = false; // Reset the flag
   let numParticles = 100;
   for (let i = 0; i < numParticles; i++) {
@@ -198,8 +201,10 @@ function draw() {
     let imgWidth = img.width * 0.3;
     let imgHeight = img.height * 0.3; 
     image(img, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 4), imgWidth, imgHeight);
-    regularSound.loop(); // Start playing the regular sound
-    isRegularSoundPlaying = true;
+    if (!isRegularSoundPlaying) {
+      regularSound.loop(); // Start playing the regular sound again if it’s not playing
+      isRegularSoundPlaying = true; // Set the flag to true
+    }
     drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
   }
 
