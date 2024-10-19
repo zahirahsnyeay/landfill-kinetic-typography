@@ -45,6 +45,9 @@ function setup() {
   resetGroundAndWalls();
   
   img = loadImage('data/foto.jpg'); 
+   img1 = loadImage('data/klikdesignzahirah.png'); 
+  img2 = loadImage('data/tengkorakbyzahirah.png'); 
+  img3 = loadImage('data/logobyzahirah.png'); 
 }
 
 function resetGame() {
@@ -183,6 +186,11 @@ function draw() {
   }
 
   if (count == 0) {
+     // Display the image above the text
+    imageMode(CENTER);
+    let imgWidth = img1.width * 0.3;
+    let imgHeight = img1.height * 0.3; 
+    image(img1, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 2.5), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -209,6 +217,11 @@ function draw() {
   }
 
   if (count == bodiesMaxLength + 3) {
+     // Display the image above the text
+    imageMode(CENTER);
+    let imgWidth = img2.width * 0.3;
+    let imgHeight = img2.height * 0.3; 
+    image(img2, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 3), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -220,6 +233,11 @@ function draw() {
   }
 
   if (count == bodiesMaxLength + 4) {
+    // Display the image above the text
+    imageMode(CENTER);
+    let imgWidth = img3.width * 0.3;
+    let imgHeight = img3.height * 0.3; 
+    image(img3, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 2), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -227,13 +245,6 @@ function draw() {
   }
 
   if (count == bodiesMaxLength + 5) {
-    strokeWeight(0);
-    fill(255);
-    textAlign(CENTER, CENTER);
-    drawWrappedText("Every small step counts: recycle, reduce plastic, compost, and choose sustainable", windowWidth / 2, windowHeight / 2, windowWidth - 40);
-  }
-
-  if (count == bodiesMaxLength + 6) {
     clickableState = false; 
     resetGame();
   }
