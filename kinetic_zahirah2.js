@@ -14,8 +14,7 @@ var count = 0;
 let particles = [];
 let explosionCenter;
 let isExploding = false;
-let isMousePressed = false; // Flag to track mouse state
-
+let isMousePressed = false; 
 
 let mytext = "157 people died buried under the rubbish of leuwigajah landfill explosion";
 let words = mytext.split(' ');
@@ -26,12 +25,12 @@ let isRedBackground = false;
 
 let regularSound;
 let explosionSound;
-let isRegularSoundPlaying = false; // Flag to check if the regular sound is playing
+let isRegularSoundPlaying = false; 
 
 function preload() {
-  regularSound = loadSound('data/mysterious-melody.mp3'); // Regular sound
-  explosionSound = loadSound('data/medium-explosion-40472.mp3'); // Explosion sound
-    clickSound = loadSound('data/punch-or-kick-sound-effect-1-239696.mp3'); // Explosion sound
+  regularSound = loadSound('data/mysterious-melody.mp3'); 
+  explosionSound = loadSound('data/medium-explosion-40472.mp3'); 
+    clickSound = loadSound('data/punch-or-kick-sound-effect-1-239696.mp3');
 
 }
 
@@ -57,9 +56,9 @@ function resetGame() {
   isExploding = false;
   clickableState = true; 
   resetGroundAndWalls();
-  if (!isRegularSoundPlaying) { // Check if the sound is not already playing
-    regularSound.loop(); // Resume playing the regular sound
-    isRegularSoundPlaying = true; // Set the flag to true
+  if (!isRegularSoundPlaying) { 
+    regularSound.loop(); 
+    isRegularSoundPlaying = true; 
   }
 }
 
@@ -85,8 +84,8 @@ function mousePressed() {
 
   // Start playing the regular sound on the first click
   if (count === 1 && !isRegularSoundPlaying) {
-    regularSound.loop(); // Start playing the regular sound
-    isRegularSoundPlaying = true; // Set the flag to true
+    regularSound.loop(); 
+    isRegularSoundPlaying = true; 
   }
 
   if (count === bodiesMaxLength) {
@@ -210,8 +209,8 @@ function draw() {
     let imgHeight = img.height * 0.3; 
     image(img, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 4), imgWidth, imgHeight);
     if (!isRegularSoundPlaying) {
-      regularSound.loop(); // Start playing the regular sound again if it’s not playing
-      isRegularSoundPlaying = true; // Set the flag to true
+      regularSound.loop(); // buat loop sound
+      isRegularSoundPlaying = true; 
     }
     drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
   }
