@@ -14,7 +14,8 @@ var count = 0;
 let particles = [];
 let explosionCenter;
 let isExploding = false;
-let isMousePressed = false; 
+let isMousePressed = false; // Flag to track mouse state
+
 
 let mytext = "157 people died buried under the rubbish of leuwigajah landfill explosion";
 let words = mytext.split(' ');
@@ -28,9 +29,9 @@ let explosionSound;
 let isRegularSoundPlaying = false; 
 
 function preload() {
-  regularSound = loadSound('data/mysterious-melody.mp3'); 
-  explosionSound = loadSound('data/medium-explosion-40472.mp3'); 
-    clickSound = loadSound('data/punch-or-kick-sound-effect-1-239696.mp3');
+  regularSound = loadSound('data/mysterious-melody.mp3'); // Regular sound
+  explosionSound = loadSound('data/medium-explosion-40472.mp3'); // Explosion sound
+    clickSound = loadSound('data/punch-or-kick-sound-effect-1-239696.mp3'); // click sound
 
 }
 
@@ -57,7 +58,7 @@ function resetGame() {
   clickableState = true; 
   resetGroundAndWalls();
   if (!isRegularSoundPlaying) { 
-    regularSound.loop(); 
+    regularSound.loop(); //loopke regulersong
     isRegularSoundPlaying = true; 
   }
 }
@@ -82,10 +83,10 @@ function resetGroundAndWalls() {
 
 function mousePressed() {
 
-  // Start playing the regular sound on the first click
+  // klikbuatplaylagu
   if (count === 1 && !isRegularSoundPlaying) {
-    regularSound.loop(); 
-    isRegularSoundPlaying = true; 
+    regularSound.loop(); //mulaiplay
+    isRegularSoundPlaying = true; // Set the flag to true
   }
 
   if (count === bodiesMaxLength) {
@@ -189,7 +190,7 @@ function draw() {
     imageMode(CENTER);
     let imgWidth = img1.width * 0.3;
     let imgHeight = img1.height * 0.3; 
-    image(img1, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 2.5), imgWidth/2, imgHeight/2);
+    image(img1, windowWidth / 2, (windowHeight / 2.2 - getDynamicTextSize() * 2), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -207,9 +208,9 @@ function draw() {
     imageMode(CENTER);
     let imgWidth = img.width * 0.3;
     let imgHeight = img.height * 0.3; 
-    image(img, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 4), imgWidth, imgHeight);
+    image(img, windowWidth / 2, (windowHeight / 2.3 - getDynamicTextSize() * 3.7), imgWidth, imgHeight);
     if (!isRegularSoundPlaying) {
-      regularSound.loop(); // buat loop sound
+      regularSound.loop(); // Start playing the regular sound again if it’s not playing
       isRegularSoundPlaying = true; 
     }
     drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
@@ -220,7 +221,7 @@ function draw() {
     imageMode(CENTER);
     let imgWidth = img2.width * 0.3;
     let imgHeight = img2.height * 0.3; 
-    image(img2, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 3), imgWidth/2, imgHeight/2);
+    image(img2, windowWidth / 2, (windowHeight / 2.1 - getDynamicTextSize() * 3), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -236,7 +237,7 @@ function draw() {
     imageMode(CENTER);
     let imgWidth = img3.width * 0.3;
     let imgHeight = img3.height * 0.3; 
-    image(img3, windowWidth / 2, (windowHeight / 2 - getDynamicTextSize() * 2), imgWidth/2, imgHeight/2);
+    image(img3, windowWidth / 2, (windowHeight / 2.1 - getDynamicTextSize() * 2.3), imgWidth/2, imgHeight/2);
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
