@@ -206,11 +206,11 @@ function draw() {
     
     // Display the image above the text
     imageMode(CENTER);
-    let imgWidth = img.width * 0.3;
-    let imgHeight = img.height * 0.3; 
-    image(img, windowWidth / 2, (windowHeight / 2.3 - getDynamicTextSize() * 3.7), imgWidth, imgHeight);
+    let imgWidth = img.width * 0.2;
+    let imgHeight = img.height * 0.2; 
+    image(img, windowWidth / 2, (windowHeight / 2.5 - getDynamicTextSize() * 2), imgWidth/0.8, imgHeight/0.8);
     if (!isRegularSoundPlaying) {
-      regularSound.loop(); // Start playing the regular sound again if it’s not playing
+      regularSound.loop(); 
       isRegularSoundPlaying = true; 
     }
     drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
