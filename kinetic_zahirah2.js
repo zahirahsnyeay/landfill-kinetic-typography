@@ -57,9 +57,11 @@ function resetGame() {
   isExploding = false;
   clickableState = true; 
   resetGroundAndWalls();
-  if (!isRegularSoundPlaying) { 
-    regularSound.loop(); //loopke regulersong
-    isRegularSoundPlaying = true; 
+
+  // Stop the regular sound if it's playing
+  if (isRegularSoundPlaying) {
+    regularSound.stop(); 
+    isRegularSoundPlaying = false; 
   }
 }
 
@@ -213,7 +215,7 @@ function draw() {
       regularSound.loop(); 
       isRegularSoundPlaying = true; 
     }
-    drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
+    drawWrappedText("157 people died buried under the rubbish of leuwigajah landfill explosion.", windowWidth / 2, (windowHeight / 2) + 40, windowWidth - 40);
   }
 
   if (count == bodiesMaxLength + 3) {
@@ -241,7 +243,7 @@ function draw() {
     strokeWeight(0);
     fill(255);
     textAlign(CENTER, CENTER);
-    drawWrappedText("Every small step counts: recycle, reduce plastic, compost, and choose sustainable", windowWidth / 2, windowHeight / 2, windowWidth - 40);
+    drawWrappedText("Every small step counts: recycle, reduce plastic, compost, and choose sustainable.", windowWidth / 2, windowHeight / 2, windowWidth - 40);
   }
 
   if (count == bodiesMaxLength + 5) {
